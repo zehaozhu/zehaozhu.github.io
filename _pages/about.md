@@ -33,7 +33,7 @@ ContactArt: Learning 3D Interaction Priors for Category-level Articulated Object
 
 **Zehao Zhu$$^*$$**, Jiashun Wang$$^*$$, Deqing Sun, Varun Jampani, Xiaolong Wang
 
-Submitted to CVPR2023 | [**Paper**](ContactArt/paper.pdf) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+Submitted to CVPR2023 | [**Project**](ContactArt/) | [**Paper**](ContactArt/paper.pdf) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - Proposed a novel framework to learn hand-object interaction priors for articulated object and hand poses estimation
 </div>
 </div>
