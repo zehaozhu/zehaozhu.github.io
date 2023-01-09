@@ -188,7 +188,6 @@ var css = function css(element, obj) {
 /* harmony export (immutable) */ __webpack_exports__["a"] = detectSupportsPassive;
 function detectSupportsPassive() {
 	var supportsPassive = false;
-
 	try {
 		var opts = Object.defineProperty({}, 'passive', {
 			get: function get() {

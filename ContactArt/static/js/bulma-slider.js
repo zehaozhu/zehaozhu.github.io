@@ -135,7 +135,6 @@ var bulmaSlider = function (_EventEmitter) {
   _createClass(bulmaSlider, [{
     key: 'init',
 
-
     /**
      * Initiate plugin
      * @method init
