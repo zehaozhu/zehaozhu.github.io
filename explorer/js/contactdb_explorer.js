@@ -5,7 +5,7 @@ if ( WEBGL.isWebGLAvailable() === false ) {
 var camera, scene, renderer, controls, dLight, aLight, material, mesh, loader, meshName;
 var scaleScene, scaleCamera, Z0, scale, scaleInsetFrac = 0.25, scaleInsetSize, scaleControls;
 var sdLight, saLight;
-var scaleObjectSize = 0.01;
+var scaleObjectSize = 0.002;
 const zoomSpeed = 0.1, rotateSpeed = 0.25;
 var rendererWidth, rendererHeight;
 var objectName='ps_controller', sessionName='39', instruction='use';
