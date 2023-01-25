@@ -105,7 +105,7 @@ function updateMesh() {
         dispStatus.innerHTML = "Status: <font color='red'>Loading</font>";
         meshName = newMeshName;
         loader.load(meshName, onGeometryLoad);
-        document.getElementById("fullbody").src = '../ContactArt/static/video/data/' + sessionName + '.mp4';
+        document.getElementById("fullbody").src = 'video/' + sessionName + '.mp4';
     }
 }
 
