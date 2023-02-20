@@ -1,15 +1,15 @@
 // should match with document.title
 const navbar_page_ids = [
-    'ContactDB',
-    'ContactDB Explorer',
-    'ContactGrasp',
-    'Grasp Capture'
+    // 'ContactDB',
+    'ContactArt Explorer',
+    // 'ContactGrasp',
+    // 'Grasp Capture'
 ];
 const navbar_page_urls = [
-    'index.html',
+    // 'index.html',
     'contactdb_explorer.html',
-    'contactgrasp.html',
-    'grasp_capture.html'
+    // 'contactgrasp.html',
+    // 'grasp_capture.html'
 ];
 
 function create_navbar() {
@@ -23,7 +23,7 @@ function create_navbar() {
     let navbar_brand = document.createElement('a');
     navbar_brand.setAttribute('class', 'navbar-brand');
     navbar_brand.setAttribute('href', navbar_page_urls[0]);
-    navbar_brand.innerHTML = 'ContactDB';
+    navbar_brand.innerHTML = 'ContactArt';
     navbar.appendChild(navbar_brand);
 
     let navbar_toggler = document.createElement('button');

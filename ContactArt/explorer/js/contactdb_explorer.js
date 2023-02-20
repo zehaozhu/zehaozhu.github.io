@@ -5,13 +5,13 @@ if ( WEBGL.isWebGLAvailable() === false ) {
 var camera, scene, renderer, controls, dLight, aLight, material, mesh, loader, meshName;
 var scaleScene, scaleCamera, Z0, scale, scaleInsetFrac = 0.25, scaleInsetSize, scaleControls;
 var sdLight, saLight;
-var scaleObjectSize = 0.01;
+var scaleObjectSize = 0.002;
 const zoomSpeed = 0.1, rotateSpeed = 0.25;
 var rendererWidth, rendererHeight;
-var objectName='ps_controller', sessionName='0', instruction='use';
+var objectName='ps_controller', sessionName='39', instruction='use';
 var datapoints;
-var thumbnailHeight = 40;
-var DEV = false;
+var thumbnailHeight = 200;
+var DEV = true;
 
 init();
 
@@ -25,11 +25,8 @@ function updateObjectNames() {
             selectedObject = o;
         }
         var imgName;
-        if (DEV) {
-            imgName = 'http://localhost:8000/thumbnails/' + o + '.png';
-        } else {
-            imgName = './thumbnails/' + o + '.png';
-        }
+
+        imgName = 'thumbnails/' + o + '.png';
         var img = document.createElement("img");
         img.src = imgName;
         img.height = thumbnailHeight;
@@ -72,22 +69,22 @@ function updateSessionNames() {
 
 
 function updateMenus(instructionSelected, objectNameSelected) {
-    // if (instructionSelected) {
-    //     updateObjectNames();
-    // } else if (objectNameSelected) {
-    //     updateSessionNames();
-    // }
+    if (instructionSelected) {
+        updateObjectNames();
+    } else if (objectNameSelected) {
+        updateSessionNames();
+    }
 }
 
 
 function instructionChanged(value) {
     instruction = value;
-    //updateMenus(true, false);
+    updateMenus(true, false);
     updateMesh();
 }
 function objectNameChanged(value) {
     objectName = value;
-    //updateMenus(false, true);
+    updateMenus(false, true);
     updateMesh();
 }
 function sessionNameChanged(value) {
@@ -96,18 +93,19 @@ function sessionNameChanged(value) {
 }
 
 
-function updateMesh(e) {
+function updateMesh() {
+    //alert(sessionName + instruction)
+
     var newMeshName;
-    // if (DEV) {
-    //     newMeshName =  'explorer/debug_data/contactdb/full39_use_ps_controller.ply'
-    // } else {
-    //     newMeshName = 'explorer/debug_data/contactdb/full39_use_ps_controller.ply'
-    //         //'./meshes/full' + sessionName + '_' + instruction + '_' + objectName + '.ply';
-    // }
-    newMeshName = 'explorer/debug_data/contactdb/' + sessionName + '.ply'
+    newMeshName = 'debug_data/contactdb/full39_use_ps_controller.ply'
+    newMeshName = 'debug_data/sapien/' + sessionName + '.ply'
+    // newMeshName = './meshes/full' + sessionName + '_' + instruction + '_' + objectName + '.ply';
     if (newMeshName != meshName) {
+        var dispStatus = document.getElementById("displayStatus");
+        dispStatus.innerHTML = "Status: <font color='red'>Loading</font>";
         meshName = newMeshName;
         loader.load(meshName, onGeometryLoad);
+        document.getElementById("fullbody").src = 'video/' + sessionName + '.mp4';
     }
 }
 
@@ -116,7 +114,7 @@ function createMenus(jsondata) {
     datapoints = {};
     for (var instr in jsondata) {
         datapoints[instr] = {};
-        Object.keys(jsondata[instr]).sort().forEach(function(key) {
+        Object.keys(jsondata[instr]).forEach(function(key) {
             datapoints[instr][key] = jsondata[instr][key];
         });
     }
@@ -204,11 +202,7 @@ function initRender() {
 function init() {
     // read datapoints information and create dropdown menus
     var datapointsName;
-    if (DEV) {
-        datapointsName = 'http://localhost:4000/explorer/debug_data/datapointsnnn.json'
-    } else {
-        datapointsName = 'explorer/debug_data/contactdb/datapoints.json';
-    }
+    datapointsName = 'debug_data/contactdb/datapoints.json'
     $.getJSON(datapointsName, {}, createMenus);
 }
 
@@ -225,6 +219,8 @@ function onGeometryLoad ( geometry ) {
         mesh.geometry.dispose();
         mesh.geometry = geometry;
     }
+    var dispStatus = document.getElementById("displayStatus");
+    dispStatus.innerHTML = "Status: Loaded <font color='green'>" + objectName + ", " + sessionName + "</font>";
 }
 
 function resizeCanvasToDisplaySize() {
@@ -275,6 +271,8 @@ function animate() {
     // scale = Z1 / Z0 * scaleObjectSize;
     const Z1 = controls.object.zoom;
     scale = Z0 / Z1 * scaleObjectSize;
+    var dispScale = document.getElementById("displayScale");
+    dispScale.innerHTML = "Cube Size: " + (scale*100).toFixed(1) + " cm";
     // console.log(scale);
     render();
     requestAnimationFrame( animate );
