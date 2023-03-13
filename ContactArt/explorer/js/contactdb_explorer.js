@@ -8,7 +8,7 @@ var sdLight, saLight;
 var scaleObjectSize = 0.002;
 const zoomSpeed = 0.1, rotateSpeed = 0.25;
 var rendererWidth, rendererHeight;
-var objectName='ps_controller', sessionName='39', instruction='use';
+var objectName='ps_controller', sessionName='39', instruction='0';
 var datapoints;
 var thumbnailHeight = 200;
 var DEV = true;
@@ -19,8 +19,8 @@ function updateObjectNames() {
     // update the object names menu
     var thumbArea = document.getElementById("thumbArea");
     thumbArea.innerHTML = "";
-    var selectedObject = Object.keys(datapoints[instruction])[0];
-    for (var o in datapoints[instruction]) {
+    var selectedObject = Object.keys(datapoints['0'])[0];
+    for (var o in datapoints['0']) {
         if (o == objectName) {
             selectedObject = o;
         }
@@ -55,7 +55,7 @@ function updateSessionNames() {
     var menu = document.getElementById("sessionNamesMenu");
     menu.options.length = 0;
     var idxSelected = 0;
-    var sessionList = datapoints[instruction][objectName];
+    var sessionList = datapoints['0'][objectName];
     for (var sIdx=0; sIdx < sessionList.length; sIdx++) {
         var s = sessionList[sIdx];
         menu.options[menu.length] = new Option(s, s);
@@ -94,19 +94,16 @@ function sessionNameChanged(value) {
 
 
 function updateMesh() {
-    //alert(sessionName + instruction)
-
-    var newMeshName;
-    newMeshName = 'debug_data/contactdb/full39_use_ps_controller.ply'
+    var newMeshName = 'debug_data/contactdb/full39_use_ps_controller.ply'
     newMeshName = 'debug_data/sapien/' + sessionName + '.ply'
-    // newMeshName = './meshes/full' + sessionName + '_' + instruction + '_' + objectName + '.ply';
-    if (newMeshName != meshName) {
+    //if (newMeshName != meshName) {
         var dispStatus = document.getElementById("displayStatus");
         dispStatus.innerHTML = "Status: <font color='red'>Loading</font>";
         meshName = newMeshName;
         loader.load(meshName, onGeometryLoad);
-        document.getElementById("fullbody").src = 'video2/' + objectName + '/' + sessionName + '_0.mp4';
-    }
+        document.getElementById("fullbody").src =
+            'video2/' + objectName + '/' + sessionName + '_' + instruction + '.mp4';
+    //}
 }
 
 
@@ -220,7 +217,7 @@ function onGeometryLoad ( geometry ) {
         mesh.geometry = geometry;
     }
     var dispStatus = document.getElementById("displayStatus");
-    dispStatus.innerHTML = "Status: Loaded <font color='green'>" + objectName + ", " + sessionName + "</font>";
+    dispStatus.innerHTML = "Status: Loaded <font color='green'>" + objectName + ", " + sessionName + " (" + instruction + ")" + "</font>";
 }
 
 function resizeCanvasToDisplaySize() {
@@ -272,8 +269,7 @@ function animate() {
     const Z1 = controls.object.zoom;
     scale = Z0 / Z1 * scaleObjectSize;
     var dispScale = document.getElementById("displayScale");
-    dispScale.innerHTML = "Cube Size: " + (scale*100).toFixed(1) + " cm";
-    // console.log(scale);
+    //dispScale.innerHTML = "Cube Size: " + (scale*100).toFixed(1) + " cm";
     render();
     requestAnimationFrame( animate );
 }
