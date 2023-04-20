@@ -193,14 +193,15 @@ Category-level Articulated Object and Hand Poses Estimation</h1>
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video autoplay muted loop playsinline height="100%">
-        <source src="static/video/teaser2.mp4" type="video/mp4">
+        <source src="static/dataset_website.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
         Our method estimates articulated object and hand poses of real-world data, by learning hand-object interaction priors from our proposed ContactArt dataset.
       </h2>
-      <a href="explorer">
+      <div style="height: 30px;"></div>
+      <a href="explorer" >
         <video autoplay muted loop playsinline height="100%" >
-          <source src="static/video/ttt.mp4" type="video/mp4">
+          <source src="static/explorer.mp4" type="video/mp4">
         </video>
       </a>
       <h2 class="subtitle has-text-centered">
@@ -253,12 +254,26 @@ Category-level Articulated Object and Hand Poses Estimation</h1>
   </div>
 </section>
 
-<section class="hero is-small">
+<section class="is-centered has-text-centered">
   <div style="height: 50px;"></div>
   <div class="columns is-centered has-text-centered">
     <h2 class="title is-3">Hand and Articulated object poses estimation on HOI4D dataset</h2>
   </div>
-  <div class="hero-body">
+
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <div class="content has-text-justified">
+        <p style="font-size: 18px; ">
+          We present a new hand object interaction dataset named ContactArt and learning pipeline for hand and articulated object poses estimation.
+          We train our method on the proposed ContactArt dataset and test our method on real-world HOI4D dataset.
+          Our method learns the 3D interaction priors from large-scale dataset.
+          The priors can easily transfer to the real and generalize to novel objects.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body" style="margin-top: -70px;">
     <div class="container">
       <div id="results-carousell" class="carousel results-carousel">
 <!--        <div class="item item-steve">-->
@@ -306,9 +321,21 @@ Category-level Articulated Object and Hand Poses Estimation</h1>
 <section class="hero is-small">
   <div style="height: 50px;"></div>
   <div class="columns is-centered has-text-centered">
-    <h2 class="title is-3">Articulated object poses estimation on BMVC and RBO dataset</h2>
+    <h2 class="title is-3">Articulated object poses estimation on RBO and BMVC dataset</h2>
   </div>
-  <div class="hero-body">
+
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <div class="content has-text-justified">
+        <p style="font-size: 18px; ">
+          Our method can also estimate accurate object pose on other real-world datasets, such as RBO and BMVC dataset.
+          Some examples are shown below.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-body" style="margin-top: -30px;">
     <div class="container">
       <div id="results-carousell" class="carousel results-carousel">
         <div class="item item-steve" >
@@ -352,12 +379,25 @@ Category-level Articulated Object and Hand Poses Estimation</h1>
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Test time training using discriminator</h2>
+        <h2 class="title is-3">Test time adaption using discriminator</h2>
 <!--        <div class="publication-video">-->
 <!--          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
 <!--                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
 <!--        </div>-->
-        <video autoplay loop playsinline muted controls width="100%" >
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p style="font-size: 18px; ">
+              Our method learns the articulation prior with a discriminator during training.
+              At test time, we feed predicted articulation structures to the discriminator with fixed paramaters.
+              The we calculate the adversarial loss and back-propagate the gradients to update the estimator.
+              We iterate this process to improve the estimator and can predict better articulated object pose.
+            </p>
+          </div>
+        </div>
+      </div>
+
+        <video autoplay loop playsinline muted controls width="100%" style="margin-top: -50px;">
           <source src="static/video/ttt.mp4" type="video/mp4">
         </video>
       </div>
@@ -367,9 +407,23 @@ Category-level Articulated Object and Hand Poses Estimation</h1>
 <section class="hero is-small">
   <div style="height: 80px;"></div>
   <div class="columns is-centered has-text-centered">
-    <h2 class="title is-3">Optimize hand using contact map</h2>
+    <h2 class="title is-3">Optimize hand using contact diffusion model</h2>
   </div>
-  <div class="hero-body">
+
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <div class="content has-text-justified">
+            <p style="font-size: 18px; ">
+              Our method learns the contact prior with a contact diffusion model.
+              At test time, we utilize the contact diffusion model to predict the contact regions at objects.
+              Then we optimize hand pose by minimizing the distance between hand vertices and the contact points at the predicted contact regions.
+              In this way, we can achieve better performance on hand pose estimation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+  <div class="hero-body" style="margin-top: -40px;">
     <div class="container">
       <div id="results-carousell" class="carousel results-carousel">
         <div class="item item-steve">
