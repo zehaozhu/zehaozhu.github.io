@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Zehao Zhu"
-description              : "Undergraduate student at Zhejiang University."
+#description              : "Undergraduate student at Zhejiang University."
 repository               : "zehaozhu/zehaozhu.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,12 +23,12 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Zehao Zhu"
   avatar           : "images/portrait.png"
-  bio              : "Zhejiang University"
-  location         : "Hangzhou, China"
+  bio              : "PhD student at University of Texas at Austin"
+  location         : "Austin, USA"
   employer         :
   pubmed           : 
   googlescholar    : # "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-  email            : "zehaozhu@zju.edu.cn"
+  email            : "zehaozhu@utexas.edu"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
