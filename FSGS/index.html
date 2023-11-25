@@ -4,7 +4,7 @@
 <!--  <link id="favicon" rel="icon" href="./Assets/icon.png" sizes="16x16">-->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>FSGS</title>
-	<meta property="og:title" content="LaMo">
+	<meta property="og:title" content="FSGS">
 	<meta property="og:description" content="FSGS: Real-Time Few-Shot View Synthesis using Gaussian Splatting">
 	<link rel="stylesheet" href="./Config/style.css">
 	<link rel="stylesheet" href="./Config/css">
@@ -78,7 +78,7 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
               (<span style="font-weight: bolder; color: red;">red cameras</span>), guide the optimization of grown Gaussians towards a reasonable geometry. The final loss consists of a photometric loss term, and a geometric regularization term calculated as depth correlation.
 			</p>
 		</div>
-		<div class="figure" style="height: 336px; background-image: url(assets/arc.jpg);"></div>
+		<div class="figure" style="width: 1300px; background-image: url(assets/arc.jpg);"></div>
 	</div>
 
 
@@ -94,12 +94,12 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
 			</p>
 		</div>
         <div class="content-video" style="margin-bottom: 40px">
-<!--          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 24 Views</h3>-->
+<!--          <h3 style="font-weight: bolder; font-size: 22px;">Trained with 24 Views</h3>-->
 
 
 
           <div class="content-video-container" >
-            <div class="content-video-frame" style="width: 33%;">
+            <div class="content-video-frame" >
               <span>FreeNeRF</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/horns_free.mp4" type="video/mp4">
@@ -107,54 +107,75 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
             </div>
 
 
-            <div class="content-video-frame" style="width: 33%;">
+            <div class="content-video-frame" >
               <span>SparseNeRF</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/horns_sparse.mp4" type="video/mp4">
               </video>
             </div>
 
-            <div class="content-video-frame" style="width: 33%;">
+
+            <div class="content-video-frame" >
+              <span>3D-GS</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/horns_3dgs.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" >
              <span style="font-weight: bolder; color: #c03d3e;">FSGS</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/horns_fsgs.mp4" type="video/mp4">
               </video>
             </div>
 
-            <div class="content-video-frame" style="width: 33%;">
+            <div class="content-video-frame" >
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/orchids_free.mp4" type="video/mp4">
               </video>
             </div>
 
+            <div class="content-video-frame" >
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/orchids_3dgs.mp4" type="video/mp4">
+              </video>
+            </div>
 
-            <div class="content-video-frame" style="width: 33%;">
+
+            <div class="content-video-frame" >
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/orchids_sparse.mp4" type="video/mp4">
               </video>
             </div>
 
-            <div class="content-video-frame" style="width: 33%;">
+            <div class="content-video-frame" >
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/orchids_fsgs.mp4" type="video/mp4">
               </video>
             </div>
 
 
-            <div class="content-video-frame" style="width: 33%;">
+            <div class="content-video-frame" >
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/garden_free.mp4" type="video/mp4">
               </video>
             </div>
 
 
-            <div class="content-video-frame" style="width: 33%;">
+            <div class="content-video-frame" >
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/garden_sparse.mp4" type="video/mp4">
               </video>
             </div>
 
-            <div class="content-video-frame" style="width: 33%;">
+
+            <div class="content-video-frame" >
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/garden_3dgs.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/garden_fsgs.mp4" type="video/mp4">
               </video>
@@ -194,7 +215,7 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
             </p>
 		</div>
         <div class="content-video" style="margin-bottom: 40px">
-          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 3 Views</h3>
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained with 3 Views</h3>
 
           <div class="content-video-container">
             <div class="content-video-frame">
@@ -264,7 +285,7 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
         </div>
                 <div class="content-video hidden-row hidden-row-group1" style="margin-bottom: 40px">
           <div class="content-video-container">
-          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 6 Views</h3>
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained with 6 Views</h3>
             <div class="content-video-frame">
               <span>fern</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
@@ -327,7 +348,7 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
 
                 <div class="content-video hidden-row hidden-row-group1" style="margin-bottom: 40px">
           <div class="content-video-container">
-          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 9 Views</h3>
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained with 9 Views</h3>
             <div class="content-video-frame">
               <span>fern</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
@@ -423,7 +444,7 @@ showMoreBtn1.addEventListener('click', function() {
 			</p>
 		</div>
         <div class="content-video" style="margin-bottom: 40px">
-          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 24 Views</h3>
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained with 24 Views</h3>
 
 
 
@@ -452,7 +473,7 @@ showMoreBtn1.addEventListener('click', function() {
 
             <div class="content-video-frame" style="width: 33%; ">
               <span>garden</span>
-              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%" height="218px" >
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%"  >
                 <source src="video/garden_24.mp4" type="video/mp4">
               </video>
 
@@ -496,7 +517,7 @@ showMoreBtn1.addEventListener('click', function() {
         </div>
                 <div class="content-video hidden-row hidden-row-group2" style="margin-bottom: 40px">
           <div class="content-video-container">
-          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 16 Views</h3>
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained with 16 Views</h3>
                         <div class="content-video-frame" style="width: 33%;">
               <span>bicycle</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
