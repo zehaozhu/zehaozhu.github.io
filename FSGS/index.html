@@ -88,7 +88,9 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
 		<h2 style="font-size: 35px;">Baseline Comparisons</h2>
 		<div class="figure-caption" style="width: 70%">
 			<p>
-				Below, we visualize <span style="font-weight: bolder; color: #c03d3e;">8</span> tasks across <span style="font-weight: bolder; color: #c03d3e;">3</span> domains that we consider.
+              We demonstrates the visual improvement of <span style="font-weight: bolder; color: #c03d3e;">FSGS</span> compared with FreeNeRF and SparseNeRF in both the forward-scene and 360 degree dataset.
+              We can observe that NeRF-based methods generate floaters and lead to aliasing results due to limited observation
+              Our proposed <span style="font-weight: bolder; color: #c03d3e;">FSGS</span> enforces more consistent and solid surfaces with geometric coherence.
 			</p>
 		</div>
         <div class="content-video" style="margin-bottom: 40px">
@@ -100,7 +102,7 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
             <div class="content-video-frame" style="width: 33%;">
               <span>FreeNeRF</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/bicycle_24.mp4" type="video/mp4">
+                <source src="comparison2/horns_free.mp4" type="video/mp4">
               </video>
             </div>
 
@@ -108,35 +110,74 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
             <div class="content-video-frame" style="width: 33%;">
               <span>SparseNeRF</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/bonsai_24.mp4" type="video/mp4">
+                <source src="comparison2/horns_sparse.mp4" type="video/mp4">
               </video>
             </div>
 
             <div class="content-video-frame" style="width: 33%;">
-              <span>Ours</span>
+             <span style="font-weight: bolder; color: #c03d3e;">FSGS</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/counter_24.mp4" type="video/mp4">
-              </video>
-            </div>
-
-            <div class="content-video-frame" style="width: 33%;">
-              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/garden_24.mp4" type="video/mp4">
-              </video>
-            </div>
-
-
-            <div class="content-video-frame" style="width: 33%;">
-              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/garden_24.mp4" type="video/mp4">
+                <source src="comparison2/horns_fsgs.mp4" type="video/mp4">
               </video>
             </div>
 
             <div class="content-video-frame" style="width: 33%;">
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/garden_24.mp4" type="video/mp4">
+                <source src="comparison2/orchids_free.mp4" type="video/mp4">
               </video>
             </div>
+
+
+            <div class="content-video-frame" style="width: 33%;">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/orchids_sparse.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/orchids_fsgs.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame" style="width: 33%;">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/garden_free.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame" style="width: 33%;">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/garden_sparse.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/garden_fsgs.mp4" type="video/mp4">
+              </video>
+            </div>
+
+<!--                        <div class="content-video-frame" style="width: 33%;">-->
+<!--              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">-->
+<!--                <source src="comparison2/bonsai_free.mp4" type="video/mp4">-->
+<!--              </video>-->
+<!--            </div>-->
+
+
+<!--            <div class="content-video-frame" style="width: 33%;">-->
+<!--              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">-->
+<!--                <source src="comparison2/bonsai_sparse.mp4" type="video/mp4">-->
+<!--              </video>-->
+<!--            </div>-->
+
+<!--            <div class="content-video-frame" style="width: 33%;">-->
+<!--              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">-->
+<!--                <source src="comparison2/bonsai_fsgs.mp4" type="video/mp4">-->
+<!--              </video>-->
+<!--            </div>-->
 
           </div>
         </div>
@@ -148,8 +189,9 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
 		<h2 style="font-size: 35px;">Visualizations on LLFF dataset</h2>
 		<div class="figure-caption" style="width: 70%">
 			<p>
-				Below, we visualize <span style="font-weight: bolder; color: #c03d3e;">8</span> tasks across <span style="font-weight: bolder; color: #c03d3e;">3</span> domains that we consider.
-			</p>
+				On LLFF dataset, we visualize results from <span style="font-weight: bolder; color: #c03d3e;">8</span> different scenes trained with <span style="font-weight: bolder; color: #c03d3e;">3, 6, 9</span> views repectively.
+			    <span style="color: #c03d3e;;font-weight: bolder;">FSGS</span> produces pleasing appearances while demonstrating detailed thin structures.
+            </p>
 		</div>
         <div class="content-video" style="margin-bottom: 40px">
           <h3 style="font-weight: bolder; font-size: 22px;">Trained on 3 Views</h3>
@@ -408,9 +450,9 @@ showMoreBtn1.addEventListener('click', function() {
               </video>
             </div>
 
-            <div class="content-video-frame" style="width: 33%;">
+            <div class="content-video-frame" style="width: 33%; ">
               <span>garden</span>
-              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%" height="218px" >
                 <source src="video/garden_24.mp4" type="video/mp4">
               </video>
             </div>
