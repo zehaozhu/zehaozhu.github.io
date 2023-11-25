@@ -1,61 +1,537 @@
+
+<!-- saved from url=(0040)https://nicklashansen.github.io/modemrl/ -->
+<html><head>
+<!--  <link id="favicon" rel="icon" href="./Assets/icon.png" sizes="16x16">-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>FSGS</title>
+	<meta property="og:title" content="LaMo">
+	<meta property="og:description" content="FSGS: Real-Time Few-Shot View Synthesis using Gaussian Splatting">
+	<link rel="stylesheet" href="./Config/style.css">
+	<link rel="stylesheet" href="./Config/css">
+	<link rel="stylesheet" href="./Config/font-awesome.min.css">
+
+  <style id="ar94e88e2a9dstyle">
+                .ar94e88e2a9dhidden{ position:absolute !important; opacity:0 !important; pointer-events:none !important}
+            </style></head>
+<body><div class="header" id="top">
+          <h1 class="title is-1 publication-title" style="font-size: 45px;"><span style="color: #c03d3e;;font-weight: bolder;">FSGS</span></h1>
+         <h1 class="title is-3 publication-title" style="font-size: 30px; margin-top: -20px;">Real-Time <span style="color: #c03d3e;font-weight: bolder;">F</span>ew-<span style="color: #c03d3e;font-weight: bolder;">S</span>hot View Synthesis using <span style="color: #c03d3e;font-weight: bolder;">G</span>aussian <span style="color: #c03d3e;font-weight: bolder;">S</span>platting</h1>
+   <table class="authors">
+    <tbody>
+      <tr>
+        <td>
+          <h4>
+            <span class="authors">
+            <a href="https://zehaozhu.github.io/" style="font-weight: bold; ">Zehao Zhu</a><sup>*</sup> &nbsp;
+            <a href="https://zhiwenfan.github.io/" style="font-weight: bold;">Zhiwen Fan</a><sup>*</sup> &nbsp;
+            <a href="https://yifanjiang19.github.io/" style="font-weight: bold;">Yifan Jiang</a> &nbsp;
+            <a href="https://www.ece.utexas.edu/people/faculty/atlas-wang" style="font-weight: bold; ">Atlas Wang</a> &nbsp;
+
+          </span>
+
+          <span class="authors-affiliation" style="font-size: 20px;">
+            University of Texas at Austin
+          </span>
+        <br>
+        <span class="authors-affiliation">
+                    </h4>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="links" style="margin-top:-1.5%;">
+    
+    <a href="" class="btn"><svg class="svg-inline--fa fa-file-pdf fa-w-12 fa-lg" style="width: 18px; height: 18px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 500" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>&nbsp;&nbsp;Paper</a>&nbsp;&nbsp;
+    <a href="" class="btn"><svg class="svg-inline--fa fa-github fa-w-16" style="width: 18px; height: 18px;" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 484 500" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>&nbsp;&nbsp;Code <span style="font-size: 10px;"><i>(coming soon)</i></span></a>
+  </div>
+</div>
+<!--<div class="content">-->
+<!--	<div class="question" style="text-align: center; font-size: 26px; font-style: italic; background-color: #dddddd; display: flex; justify-content: center; align-items: center;">-->
+<!--    <br>-->
+<!--    "Can we unleash the power of pre-trained LMs to solve <br> sequential decision-making problems?" <br> &ensp;-->
+<!--  </div>-->
+  </div><div class="hr"></div>
+	<div>
+		<h2 style="font-size: 35px">Overview</h2>
+      <div class="figure-caption" style="width: 70%">
+			<p style="font-size: 17px;">
+			Novel view synthesis from limited observations remains an important and persistent task. However, high efficiency in existing NeRF-based few-shot  view synthesis is often compromised to obtain an accurate 3D representation.
+To address this challenge, we propose a <span style="color: #c03d3e;;font-weight: bolder;">F</span>ew-<span style="color: #c03d3e;;font-weight: bolder;">S</span>hot view synthesis framework based on 3D <span style="color: #c03d3e;;font-weight: bolder;">G</span>aussian <span style="color: #c03d3e;;font-weight: bolder;">S</span>platting that enables real-time and photo-realistic view synthesis with as few as three training views. The proposed method, dubbed <span style="color: #c03d3e;;font-weight: bolder;">FSGS</span>, handles the extremely sparse initialized SfM points with a thoughtfully designed Gaussian Unpooling process.  Our method iteratively distributes new Gaussians around the most representative locations, subsequently infilling local details in vacant areas. We also integrate a large-scale pre-trained monocular depth estimator within the Gaussians optimization process, leveraging online augmented views to guide the geometric optimization towards an optimal solution.
+Starting from sparse points observed from limited input viewpoints, our FSGS can accurately grow into unseen regions, comprehensively covering the scene and boosting the rendering quality of novel views. Overall, FSGS achieves state-of-the-art performance in both accuracy and rendering efficiency across diverse datasets, including LLFF, Mip-NeRF360, and Blender. Code will be made available.		</p>
+		</div>
+	</div>
+
+  	</div><div class="hr"></div>
+	<div>
+		<h2 style="font-size: 35px;">Method</h2>
+		<div class="figure-caption" style="width: 70%">
+			<p style="font-size: 17px;">
+<!--				<span style="font-weight: bolder; color: #c03d3e;">FSGS</span> encompasses several crucial designs:</li>-->
+<!--              <ol type="1">-->
+<!--                <li> We adopt a pre-trained LM (<i>i.e.</i> GPT-2) as the initialization of a Decision Transformer (DT);</li>-->
+<!--                <li> We replace the linear embedding projections with MLPs to augment representation learning capabilities for complicated tasks;</li>-->
+<!--                <li> During training the offline RL agents, we freeze the pre-trained parts and utilize the parameter-efficient fine-tuning technique LoRA, where the trainable parameters account for only <span style="font-weight: bolder; color: #c03d3e;">0.7%</span> of the entire model;</li>-->
+<!--                <li> We introduce language prediction as an auxiliary objective while finetuning, in order to stabilize the performance and maintain the language ability.</li>-->
+<!--              </ol>-->
+              <span style="font-weight: bolder; color: #c03d3e;">FSGS</span> are initialized from SfM, with a few images
+              (<span style="font-weight: bolder; color: black;">black cameras</span>). For the sparsely placed Gaussians, we propose densifying new Gaussians to enhance scene coverage by unpooling existing Gaussians into new ones, with properly initialized Gaussian attributes. Monocular depth priors, enhanced by sampling unobserved views
+              (<span style="font-weight: bolder; color: red;">red cameras</span>), guide the optimization of grown Gaussians towards a reasonable geometry. The final loss consists of a photometric loss term, and a geometric regularization term calculated as depth correlation.
+			</p>
+		</div>
+		<div class="figure" style="height: 336px; background-image: url(assets/arc.jpg);"></div>
+	</div>
+
+
+
+	<div class="hr"></div>
+	<div>
+		<h2 style="font-size: 35px;">Baseline Comparisons</h2>
+		<div class="figure-caption" style="width: 70%">
+			<p>
+				Below, we visualize <span style="font-weight: bolder; color: #c03d3e;">8</span> tasks across <span style="font-weight: bolder; color: #c03d3e;">3</span> domains that we consider.
+			</p>
+		</div>
         <div class="content-video" style="margin-bottom: 40px">
+<!--          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 24 Views</h3>-->
+
+
+
+          <div class="content-video-container" >
+            <div class="content-video-frame" style="width: 33%;">
+              <span>FreeNeRF</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/bicycle_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>SparseNeRF</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/bonsai_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>Ours</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/counter_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/garden_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame" style="width: 33%;">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/garden_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/garden_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+
+	<div class="hr"></div>
+	<div>
+		<h2 style="font-size: 35px;">Visualizations on LLFF dataset</h2>
+		<div class="figure-caption" style="width: 70%">
+			<p>
+				Below, we visualize <span style="font-weight: bolder; color: #c03d3e;">8</span> tasks across <span style="font-weight: bolder; color: #c03d3e;">3</span> domains that we consider.
+			</p>
+		</div>
+        <div class="content-video" style="margin-bottom: 40px">
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 3 Views</h3>
+
           <div class="content-video-container">
             <div class="content-video-frame">
-              <span>Hopper</span>
+              <span>fern</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/fern3w.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+  
+            <div class="content-video-frame">
+              <span>flower</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/flower3.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+            <div class="content-video-frame">
+              <span>fortress</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/fortress3w.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+            <div class="content-video-frame">
+              <span>horns</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/horns3w.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+            <div class="content-video-frame">
+              <span>leaves</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/leaves3w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
+              <span>orchids</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/orchids3w.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+            <div class="content-video-frame">
+              <span>room</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/room3w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
+              <span>trex</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/trex3w.mp4" type="video/mp4">
+              </video>
+            </div>
+  
+          </div>
+        </div>
+
+      <div style="text-align: center; margin-top: 10px; margin-bottom:20px">
+        <button id="showMoreBtn" style="width: 130px; height: 35px; border-radius: 20px; background-color: #1e1c1c; color: #fff; font-size: 17px; border: none; cursor: pointer;">
+          More Results
+        </button>
+        </div>
+                <div class="content-video hidden-row hidden-row-group1" style="margin-bottom: 40px">
+          <div class="content-video-container">
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 6 Views</h3>
+            <div class="content-video-frame">
+              <span>fern</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/fern6w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame">
+              <span>flower</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/flower6.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
+              <span>fortress</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/fortress6w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
+              <span>horns</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/horns6w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
+              <span>leaves</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/leaves6w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
+              <span>orchids</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/orchids6w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
+              <span>room</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/room6w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame">
+              <span>trex</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/trex6w.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+        </div>
+
+                <div class="content-video hidden-row hidden-row-group1" style="margin-bottom: 40px">
+          <div class="content-video-container">
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 9 Views</h3>
+            <div class="content-video-frame">
+              <span>fern</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="video/fern9w.mp4" type="video/mp4">
               </video>
             </div>
-  
-  
+
+
             <div class="content-video-frame">
-              <span>Walker2d</span>
+              <span>flower</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="video/flower9.mp4" type="video/mp4">
               </video>
             </div>
-  
+
             <div class="content-video-frame">
-              <span>Halfcheetah</span>
+              <span>fortress</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="video/fortress9w.mp4" type="video/mp4">
               </video>
             </div>
-  
+
             <div class="content-video-frame">
-              <span>Reacher</span>
+              <span>horns</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="video/horns9w.mp4" type="video/mp4">
               </video>
             </div>
-  
+
             <div class="content-video-frame">
-              <span>Breakout</span>
+              <span>leaves</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="video/leaves9w.mp4" type="video/mp4">
               </video>
             </div>
 
             <div class="content-video-frame">
-              <span>Qbert</span>
+              <span>orchids</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="video/orchids9w.mp4" type="video/mp4">
               </video>
             </div>
-  
+
             <div class="content-video-frame">
-              <span>Pong</span>
+              <span>room</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="video/room9w.mp4" type="video/mp4">
               </video>
             </div>
 
             <div class="content-video-frame">
-              <span>Kitchen</span>
+              <span>trex</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="video/trex9w.mp4" type="video/mp4">
               </video>
             </div>
-  
+
+          </div>
+
+
+      <script>
+        // 获取第一个按钮和它控制的视频容器
+const showMoreBtn1 = document.getElementById('showMoreBtn');
+const hiddenRowContainersGroup1 = document.querySelectorAll('.hidden-row-group1');
+
+// 设置第一组的初始状态为隐藏
+hiddenRowContainersGroup1.forEach(function(container) {
+  container.style.display = 'none';
+});
+
+// 第一个按钮的点击事件
+showMoreBtn1.addEventListener('click', function() {
+  hiddenRowContainersGroup1.forEach(function(container) {
+    if (container.style.display === 'none') {
+      container.style.display = 'block';
+      showMoreBtn1.textContent = 'Hide';
+    } else {
+      container.style.display = 'none';
+      showMoreBtn1.textContent = 'More Results';
+    }
+  });
+});
+      </script>
+    </div>
+
+
+       	<div class="hr"></div>
+	<div>
+		<h2 style="font-size: 35px;">Visualizations on Mip-NeRF360 dataset</h2>
+		<div class="figure-caption" style="width: 70%">
+			<p>
+				Below, we visualize <span style="font-weight: bolder; color: #c03d3e;">8</span> tasks across <span style="font-weight: bolder; color: #c03d3e;">3</span> domains that we consider.
+			</p>
+		</div>
+        <div class="content-video" style="margin-bottom: 40px">
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 24 Views</h3>
+
+
+
+          <div class="content-video-container" >
+            <div class="content-video-frame" style="width: 33%;">
+              <span>bicycle</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/bicycle_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>bonsai</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/bonsai_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>counter</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/counter_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>garden</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/garden_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>kitchen</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/kitchen_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>room</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/room_24.mp4" type="video/mp4">
+              </video>
+            </div>
+
+<!--            <div class="content-video-frame">-->
+<!--              <span>room</span>-->
+<!--              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">-->
+<!--                <source src="video/room3w.mp4" type="video/mp4">-->
+<!--              </video>-->
+<!--            </div>-->
+
+<!--            <div class="content-video-frame">-->
+<!--              <span>trex</span>-->
+<!--              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">-->
+<!--                <source src="video/trex3w.mp4" type="video/mp4">-->
+<!--              </video>-->
+<!--            </div>-->
+
           </div>
         </div>
+
+      <div style="text-align: center; margin-top: 10px; margin-bottom:20px">
+        <button id="showMoreBtn2" style="width: 130px; height: 35px; border-radius: 20px; background-color: #1e1c1c; color: #fff; font-size: 17px; border: none; cursor: pointer;">
+          More Results
+        </button>
+        </div>
+                <div class="content-video hidden-row hidden-row-group2" style="margin-bottom: 40px">
+          <div class="content-video-container">
+          <h3 style="font-weight: bolder; font-size: 22px;">Trained on 16 Views</h3>
+                        <div class="content-video-frame" style="width: 33%;">
+              <span>bicycle</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/bicycle_16.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>bonsai</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/bonsai_16.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>counter</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/counter_16.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>garden</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/garden_16.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>kitchen</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/kitchen_16.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="content-video-frame" style="width: 33%;">
+              <span>room</span>
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/room_16.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      <script>
+        // 获取第二个按钮和它控制的视频容器
+const showMoreBtn2 = document.getElementById('showMoreBtn2');
+const hiddenRowContainersGroup2 = document.querySelectorAll('.hidden-row-group2');
+
+// 设置第二组的初始状态为隐藏
+hiddenRowContainersGroup2.forEach(function(container) {
+  container.style.display = 'none';
+});
+
+// 第二个按钮的点击事件
+showMoreBtn2.addEventListener('click', function() {
+  hiddenRowContainersGroup2.forEach(function(container) {
+    if (container.style.display === 'none') {
+      container.style.display = 'block';
+      showMoreBtn2.textContent = 'Hide';
+    } else {
+      container.style.display = 'none';
+      showMoreBtn2.textContent = 'More Results';
+    }
+  });
+});
+      </script>
+    </div>
+
+        </div>
+  
+
+</div>
+<footer>
+<a href="https://zehaozhu.github.io/FSGS/#top" class="bold">To top ↑</a>
+</footer>
+<script src="chrome-extension://klbdahhocigoaoaanhoghblieoadfgcj/scripts/start.js"></script></body></html>
