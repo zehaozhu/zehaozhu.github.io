@@ -78,8 +78,13 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
               (<span style="font-weight: bolder; color: red;">red cameras</span>), guide the optimization of grown Gaussians towards a reasonable geometry. The final loss consists of a photometric loss term, and a geometric regularization term calculated as depth correlation.
 			</p>
 		</div>
-		<div class="figure" style="width: 1300px; background-image: url(assets/arc.jpg);"></div>
 	</div>
+        <div style="text-align: center;">
+          <figure style="display: inline-block; max-width: 75%;">
+            <img src="assets/arc.jpg" alt="Pipeline Image" style="max-width: 100%;">
+<!--            <figcaption>The workflow of <span style="color: rgb(128, 185, 90); font-weight: bolder;">Uni-O4</span> online-offline-online fine-tuning framework on real-world robots. </figcaption>-->
+          </figure>
+        </div>
 
 
 
@@ -125,19 +130,13 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
             <div class="content-video-frame" >
              <span style="font-weight: bolder; color: #c03d3e;">FSGS</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="comparison2/horns_fsgs.mp4" type="video/mp4">
+                <source src="video/horns3w.mp4" type="video/mp4">
               </video>
             </div>
 
             <div class="content-video-frame" >
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
                 <source src="comparison2/orchids_free.mp4" type="video/mp4">
-              </video>
-            </div>
-
-            <div class="content-video-frame" >
-              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="comparison2/orchids_3dgs.mp4" type="video/mp4">
               </video>
             </div>
 
@@ -150,7 +149,14 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
 
             <div class="content-video-frame" >
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="comparison2/orchids_fsgs.mp4" type="video/mp4">
+                <source src="comparison2/orchids_3dgs.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame" >
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/orchids3w.mp4" type="video/mp4">
               </video>
             </div>
 
@@ -177,28 +183,35 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
 
             <div class="content-video-frame">
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="comparison2/garden_fsgs.mp4" type="video/mp4">
+                <source src="video/garden_24.mp4" type="video/mp4">
               </video>
             </div>
 
-<!--                        <div class="content-video-frame" style="width: 33%;">-->
-<!--              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">-->
-<!--                <source src="comparison2/bonsai_free.mp4" type="video/mp4">-->
-<!--              </video>-->
-<!--            </div>-->
+                      <div class="content-video-frame" >
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/bonsai_free.mp4" type="video/mp4">
+              </video>
+            </div>
 
 
-<!--            <div class="content-video-frame" style="width: 33%;">-->
-<!--              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">-->
-<!--                <source src="comparison2/bonsai_sparse.mp4" type="video/mp4">-->
-<!--              </video>-->
-<!--            </div>-->
+            <div class="content-video-frame" >
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/bonsai_sparse.mp4" type="video/mp4">
+              </video>
+            </div>
 
-<!--            <div class="content-video-frame" style="width: 33%;">-->
-<!--              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">-->
-<!--                <source src="comparison2/bonsai_fsgs.mp4" type="video/mp4">-->
-<!--              </video>-->
-<!--            </div>-->
+             <div class="content-video-frame" >
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="comparison2/bonsai_3dgs.mp4" type="video/mp4">
+              </video>
+            </div>
+
+
+            <div class="content-video-frame" >
+              <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
+                <source src="video/bonsai_24.mp4" type="video/mp4">
+              </video>
+            </div>
 
           </div>
         </div>
@@ -228,7 +241,7 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
             <div class="content-video-frame">
               <span>flower</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/flower3.mp4" type="video/mp4">
+                <source src="video/flower3w.mp4" type="video/mp4">
               </video>
             </div>
   
@@ -296,7 +309,7 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
             <div class="content-video-frame">
               <span>flower</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/flower6.mp4" type="video/mp4">
+                <source src="video/flower6w.mp4" type="video/mp4">
               </video>
             </div>
 
@@ -359,7 +372,7 @@ Starting from sparse points observed from limited input viewpoints, our FSGS can
             <div class="content-video-frame">
               <span>flower</span>
               <video playsinline="" autoplay="" loop="" preload="" muted="" width="100%">
-                <source src="video/flower9.mp4" type="video/mp4">
+                <source src="video/flower9w.mp4" type="video/mp4">
               </video>
             </div>
 
@@ -566,16 +579,13 @@ showMoreBtn1.addEventListener('click', function() {
 
 
       <script>
-        // 获取第二个按钮和它控制的视频容器
 const showMoreBtn2 = document.getElementById('showMoreBtn2');
 const hiddenRowContainersGroup2 = document.querySelectorAll('.hidden-row-group2');
 
-// 设置第二组的初始状态为隐藏
 hiddenRowContainersGroup2.forEach(function(container) {
   container.style.display = 'none';
 });
 
-// 第二个按钮的点击事件
 showMoreBtn2.addEventListener('click', function() {
   hiddenRowContainersGroup2.forEach(function(container) {
     if (container.style.display === 'none') {
@@ -595,6 +605,28 @@ showMoreBtn2.addEventListener('click', function() {
 
 </div>
 <footer>
-<a href="https://zehaozhu.github.io/FSGS/#top" class="bold">To top ↑</a>
+  Website borrowed from  <a rel="license" href="https://gemcollector.github.io/RL-ViGen/">RL-ViGen</a> and
+   <a rel="license" href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+<!--<a href="https://zehaozhu.github.io/FSGS/#top" class="bold">To top ↑</a>-->
 </footer>
+
+<!--<div class="columns is-centered">-->
+<!--      <div class="column is-8">-->
+<!--        <div class="content">-->
+<!--          <p>-->
+<!--            This website is licensed under a <a rel="license"-->
+<!--                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative-->
+<!--            Commons Attribution-ShareAlike 4.0 International License</a>.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            This means you are free to borrow the <a-->
+<!--              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,-->
+<!--            we just ask that you link back to this page in the footer.-->
+<!--            Please remember to remove the analytics code included in the header of the website which-->
+<!--            you do not want on your website.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
 <script src="chrome-extension://klbdahhocigoaoaanhoghblieoadfgcj/scripts/start.js"></script></body></html>
