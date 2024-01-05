@@ -40,7 +40,7 @@ Preprint | [**Project**](FSGS/) | [**Paper**](https://arxiv.org/abs/2312.00451) 
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='ContactArt/teaser.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='ContactArt/teaser.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 ContactArt: Learning 3D Interaction Priors for Category-level Articulated Object and Hand Poses Estimation
