@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hello, I am Zehao Zhu (朱泽昊), a first-year PhD student at University of Texas at Austin advised by [Prof. Atlas Wang](https://www.ece.utexas.edu/people/faculty/atlas-wang). 
+Hello, I am Zehao Zhu (朱泽昊), a first-year PhD student at University of Texas at Austin. 
 Prior to that, I obtained my bachelor's degree from Zhejiang University in 2023.
 My research interest lies in the intersection between computer vision and computer graphics. 
 
@@ -27,6 +27,18 @@ My research interest lies in the intersection between computer vision and comput
 - 08/2023 Join University of Texas at Austin as a PhD student.
 
 # 📝 Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><img src='https://github.com/zehaozhu/misc/raw/main/video_demo_1page.gif' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+FSGS: Real-Time Few-Shot View Synthesis using Gaussian Splatting
+
+**Zehao Zhu$$^*$$**, Zhiwen Fan$$^*$$, Yifan Jiang, Zhangyang Wang
+
+Preprint | [**Project**](FSGS/) | [**Paper**](https://arxiv.org/abs/2312.00451) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- Proposed a few-shot view synthesis framework based on 3D Gaussian Splatting that enables real-time and photo-realistic view synthesis with as few as three training views.
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><img src='ContactArt/teaser.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
